@@ -21,13 +21,26 @@ export const InputArea = () => {
   const handleAddNote = (e) => {
     if (value === "") return;
     e.preventDefault();
-    dispatch(addNote({ content: value, color: color }));
+    dispatch(addNote(value, color));
     setValue("");
+    setColor("");
+  };
+  console.log(color);
+
+  const checked = (id) => {
+    return color === id;
   };
 
   return (
     <>
-      <Flex flexDirection={"row"} justifyContent={"center"} alignItems="center">
+      <Flex
+        flexDirection={"row"}
+        justifyContent={"center"}
+        alignItems="center"
+        mb={10}
+        padding={"10px"}
+        marginX={"auto"}
+      >
         <Stack
           direction="column"
           spacing={2}
@@ -37,13 +50,16 @@ export const InputArea = () => {
         >
           {colors.map((color) => (
             <Checkbox
-              key={color}
-              border={`5px solid ${color}`}
+              id={color}
+              border={`7px solid ${color}`}
               borderRadius="50%"
               iconColor={`${color}.100`}
               bgColor={`${color}`}
               variant="transparent"
+              size="sm"
+              value={color}
               onChange={(e) => setColor(e.target.value)}
+              isChecked={checked(color)}
             ></Checkbox>
           ))}
         </Stack>
@@ -51,25 +67,27 @@ export const InputArea = () => {
           placeholder="Write down your note here"
           border={"1px solid blue"}
           borderRadius={"5px"}
-          resize={"none"}
-          height={"200px"}
-          width={"60%"}
+          minHeight={"170px"}
+          padding={"10px"}
+          width={"50%"}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           position={"relative"}
         ></Textarea>
         <Button
           onClick={handleAddNote}
+          disabled={!value || !color}
           colorScheme="blue"
           variant={"solid"}
           width={"10%"}
           height={"40px"}
           padding={"10px"}
+          margin={"10px"}
           borderRadius={"5px"}
-          position={"absolute"}
-          right={"17%"}
-          top={"55%"}
           minWidth={"100px"}
+          position={"absolute"}
+          right={"21%"}
+          top={"230px"}
         >
           Add Note
         </Button>
