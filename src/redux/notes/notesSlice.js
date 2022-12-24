@@ -23,10 +23,20 @@ export const notesSlice = createSlice({
         };
       },
     },
+    searchNote: (state, action) => {
+      state.notes = state.notes.filter((note) =>
+        note.content.includes(action.payload)
+      );
+    },
+    filterNote: (state, action) => {
+      state.notes = state.notes.filter((note) => note.color === action.payload);
+    },
+
     deleteNote: (state, action) => {
       state.notes = state.notes.filter((note) => note.id !== action.payload);
     },
   },
 });
 
-export const { addNote, deleteNote } = notesSlice.actions;
+export const { addNote, deleteNote, searchNote, filterNote } =
+  notesSlice.actions;

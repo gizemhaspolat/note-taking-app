@@ -1,10 +1,17 @@
-import { Textarea, Stack, Checkbox, Flex, Button } from "@chakra-ui/react";
+import {
+  Textarea,
+  Stack,
+  Checkbox,
+  Flex,
+  Button,
+  Text,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { addNote } from "../redux/notes/notesSlice";
 
-const colors = [
+export const colors = [
   "lightpink",
   "chocolate",
   "cornflowerblue",
@@ -25,7 +32,6 @@ export const InputArea = () => {
     setValue("");
     setColor("");
   };
-  console.log(color);
 
   const checked = (id) => {
     return color === id;
@@ -47,11 +53,15 @@ export const InputArea = () => {
           align="center"
           padding={"10px"}
           width={"10%"}
+          mx={"10px"}
         >
+          <Text fontSize={"sm"} fontWeight={"bold"} color={"blue.500"} as="u">
+            Select Color
+          </Text>
           {colors.map((color) => (
             <Checkbox
               id={color}
-              border={`7px solid ${color}`}
+              border={`6px solid ${color}`}
               borderRadius="50%"
               iconColor={`${color}.100`}
               bgColor={`${color}`}
@@ -73,6 +83,8 @@ export const InputArea = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           position={"relative"}
+          marginTop={"28px"}
+          marginX={"10px"}
         ></Textarea>
         <Button
           onClick={handleAddNote}
@@ -86,8 +98,8 @@ export const InputArea = () => {
           borderRadius={"5px"}
           minWidth={"100px"}
           position={"absolute"}
-          right={"21%"}
-          top={"230px"}
+          right={"20%"}
+          top={"320px"}
         >
           Add Note
         </Button>

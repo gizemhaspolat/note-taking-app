@@ -5,6 +5,7 @@ import {
   CardFooter,
   Button,
   Flex,
+  Divider,
   Text,
 } from "@chakra-ui/react";
 
@@ -32,6 +33,7 @@ const NoteCards = () => {
           height={"200px"}
           margin={"10px"}
           borderRadius={"10px"}
+          boxShadow={"lg"}
         >
           <CardHeader color={"white"} bgColor={note.color} padding={2}>
             <Text fontSize={"20px"} fontWeight={"bold"}>
@@ -41,6 +43,7 @@ const NoteCards = () => {
           <CardBody padding={2} overflow={"auto"}>
             <Text fontSize={"15px"}>{note.content}</Text>
           </CardBody>
+          <Divider />
           <CardFooter padding={2} display={"flex"} justifyContent={"center"}>
             <Button
               onClick={() => dispatch(deleteNote(note.id))}
