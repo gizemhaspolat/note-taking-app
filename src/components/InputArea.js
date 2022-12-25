@@ -99,7 +99,8 @@ export const InputArea = () => {
           minWidth={"100px"}
           position={"absolute"}
           right={"20%"}
-          top={"320px"}
+          top={"300px"}
+          zIndex={"2"}
         >
           Add Note
         </Button>

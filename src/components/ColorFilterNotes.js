@@ -29,10 +29,18 @@ const FilterMenu = () => {
         value={colors}
         marginX={"10px"}
         size={"sm"}
+        bg={pickedColor}
       >
         {pickedColor ? pickedColor : "Filter by color"}
       </MenuButton>
-      <MenuList>
+      <MenuList
+        bg={"gray.100"}
+        color={"gray.700"}
+        border={"1px solid gray.300"}
+        boxShadow={"md"}
+        rounded={"md"}
+        zIndex={4}
+      >
         {colors.map((color) => (
           <MenuItem key={color} onClick={handleFilter} value={color}>
             {color}
