@@ -30,7 +30,8 @@ const SearchNotes = () => {
           placeholder="Find the note you are looking for"
           value={searchWord}
           onChange={(e) => setSearchWord(e.target.value)}
-          marginX={"10px"}
+          marginX={{ base: "5px", sm: "10px" }}
+          fontSize={{ base: "sm", md: "md" }}
         />
         <InputRightElement width="6rem" pr={"16px"}>
           <Button

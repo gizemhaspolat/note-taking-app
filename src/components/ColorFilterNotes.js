@@ -27,9 +27,12 @@ const FilterMenu = () => {
         variant="outline"
         placeholder="Filter by color"
         value={colors}
-        marginX={"10px"}
+        marginX={{ base: "2px", sm: "10px" }}
+        paddingX={{ base: "4px", sm: "10px" }}
         size={"sm"}
         bg={pickedColor}
+        fontSize={{ base: "sm", md: "md" }}
+        minW={"120px"}
       >
         {pickedColor ? pickedColor : "Filter by color"}
       </MenuButton>

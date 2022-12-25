@@ -79,7 +79,7 @@ export const InputArea = () => {
           borderRadius={"5px"}
           minHeight={"170px"}
           padding={"10px"}
-          width={"50%"}
+          width={{ base: "70%", sm: "50%" }}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           position={"relative"}
